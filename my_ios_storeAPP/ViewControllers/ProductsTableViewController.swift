@@ -20,6 +20,10 @@ class ProductsTableViewController: UITableViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     lazy var addProductBarItemButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProductButtonPressed))
         return barButtonItem
@@ -38,9 +42,9 @@ class ProductsTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProductTableViewCell")
         navigationItem.rightBarButtonItem = addProductBarItemButton
         
-        Task {
-            await populateProducts()
-        }
+//        Task {
+//            await populateProducts()
+//        }
     }
     
     private func populateProducts() async {
@@ -52,17 +56,27 @@ class ProductsTableViewController: UITableViewController {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await populateProducts()
+            tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         products.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        self.navigationController?.pushViewController(ProductDetailViewController(product: product), animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath)
+        cell.accessoryType = .disclosureIndicator
         
         let product = products[indexPath.row]
         
