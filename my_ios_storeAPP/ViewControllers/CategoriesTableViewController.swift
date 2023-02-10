@@ -30,8 +30,8 @@ class CategoriesTableViewController: UITableViewController {
     private func populateCategories() async {
         
         do {
-            categories = try await client.getAllCategories()
-            print(categories)
+            categories = try await client.load(Resource(url: URL.allCategories))
+//            categories = try await client.getAllCategories()
         } catch {
             //show error in alert
         }

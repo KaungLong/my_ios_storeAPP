@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DeleteProductResponse: Decodable {
+struct DeleteProductResponse: Codable {
     var rta: Bool?
     var statusCode: Int?
     var message: String?
