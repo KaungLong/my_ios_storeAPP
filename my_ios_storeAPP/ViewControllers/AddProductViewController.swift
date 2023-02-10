@@ -123,7 +123,7 @@ class AddProductViewController: UIViewController {
               let category = selectedCategory
         else { return }
         
-        let product = Product(title: title, price: price, description: description, image: [productImageUrl], category: category)
+        let product = Product(title: title, price: price, description: description, images: [productImageUrl], category: category)
         
         delegate?.addProductViewControllerDidSave(product: product, controller: self)
     }

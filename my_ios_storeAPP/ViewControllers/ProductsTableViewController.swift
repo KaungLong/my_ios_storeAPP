@@ -20,17 +20,16 @@ class ProductsTableViewController: UITableViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    lazy var  addProductBarItemButton: UIBarButtonItem = {
+    lazy var addProductBarItemButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProductButtonPressed))
         return barButtonItem
     }()
     
-    @objc func addProductButtonPressed(_ sender: UIBarButtonItem) {
+    @objc private func addProductButtonPressed(_ sender: UIBarButtonItem) {
         let addProductVC = AddProductViewController()
         addProductVC.delegate = self
         let navigationController = UINavigationController(rootViewController: addProductVC)
         present(navigationController, animated: true)
-        
     }
     
     override func viewDidLoad() {
@@ -67,12 +66,12 @@ class ProductsTableViewController: UITableViewController {
         
         let product = products[indexPath.row]
         
-        
-        cell.contentConfiguration = UIHostingConfiguration(content: {ProductCellView(product: product)})
+        cell.contentConfiguration = UIHostingConfiguration(content: {
+            ProductCellView(product: product)
+        })
         
         return cell
     }
-    
 }
 
 extension ProductsTableViewController: AddProductViewControllerDelegate {

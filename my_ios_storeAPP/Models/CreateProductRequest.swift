@@ -20,7 +20,7 @@ struct CreateProductRequest: Encodable {
         price = product.price
         description = product.description
         categoryId = product.category.id
-        images = product.image ?? []
+        images = product.images ?? []
     }
     
 }
