@@ -2,11 +2,14 @@
 //  CategoriesTableViewController.swift
 //  my_ios_storeAPP
 //
-//  Created by 危末狂龍 on 2023/2/9.
+//  Created by Ozen on 2023/2/9.
 //
 
 import Foundation
 import UIKit
+
+
+
 
 class CategoriesTableViewController: UITableViewController {
     
@@ -55,6 +58,7 @@ class CategoriesTableViewController: UITableViewController {
         var configuration = cell.defaultContentConfiguration()
         configuration.text = category.name
         
+        
         if let url = URL(string: category.image) {
             DispatchQueue.global().async {
                 if let data = try?Data(contentsOf: url ) {
@@ -65,13 +69,11 @@ class CategoriesTableViewController: UITableViewController {
                         cell.contentConfiguration = configuration
                     }
                 }
-                    
             }
         }
-//
-//
-//        cell.contentConfiguration = configuration
-        
+     
         return cell
     }
 }
+
+

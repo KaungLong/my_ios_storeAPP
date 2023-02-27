@@ -2,7 +2,7 @@
 //  addProductViewController.swift
 //  my_ios_storeAPP
 //
-//  Created by 危末狂龍 on 2023/2/10.
+//  Created by Ozen on 2023/2/10.
 //
 
 import Foundation
@@ -185,10 +185,13 @@ struct AddProductViewControllerRepressentable: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> some UIViewController {
         UINavigationController(rootViewController: AddProductViewController())
+        
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
          
+
+        
     }
 }
 
