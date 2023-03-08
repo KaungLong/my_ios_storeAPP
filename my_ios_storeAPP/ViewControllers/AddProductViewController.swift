@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-enum AddProductTextFieldType        : Int {
+enum AddProductTextFieldType: Int {
     case title
     case price
     case imageUrl

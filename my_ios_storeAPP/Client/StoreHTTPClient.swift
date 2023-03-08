@@ -36,8 +36,6 @@ struct Resource<T: Codable> {
     var method: HttpMethod = .get([])
 }
 
-
-
 class StoreHTTPClient {
     
     //Generic Network Layer

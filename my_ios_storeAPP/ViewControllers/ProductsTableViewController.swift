@@ -84,9 +84,7 @@ class ProductsTableViewController: UITableViewController {
         cell.contentConfiguration = UIHostingConfiguration(content: {
             ProductCellView(product: product)
         })
-        
-        
-             
+              
         return cell
     }
 }

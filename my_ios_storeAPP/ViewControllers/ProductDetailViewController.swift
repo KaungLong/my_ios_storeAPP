@@ -125,7 +125,6 @@ class ProductDetailViewController: UIViewController {
         
         view.addSubview(stackView)
         
-        // adding constraints
         stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
     

@@ -18,11 +18,10 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        
         title = "Categories"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CategoryTableViewCell")
-        
         
         Task {
             await populateCategories()
@@ -36,7 +35,7 @@ class CategoriesTableViewController: UITableViewController {
             categories = try await client.load(Resource(url: URL.allCategories))
 //            categories = try await client.getAllCategories()
         } catch {
-            //show error in alert
+            print(error)
         }
     }
     
